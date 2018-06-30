@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace ViveMeta.System
 {
@@ -22,6 +23,8 @@ namespace ViveMeta.System
         GameObject ViveCameras;
         [SerializeField]
         GameObject MetaCameras;
+        [SerializeField]
+        NetworkManager netManager;
 
 
 
@@ -45,7 +48,18 @@ namespace ViveMeta.System
         // Use this for initialization
         void Start ()
         {
-
+            if ( deviceType == DeviceType.VIVE )
+            {
+                netManager.StartHost ();
+            }
+            else if ( deviceType == DeviceType.META )
+            {
+                netManager.StartClient ();
+            }
+            else
+            {
+                Debug.LogError ("No DeviceType Selected");
+            }
         }
 
         // Update is called once per frame
