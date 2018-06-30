@@ -26,6 +26,8 @@ namespace ViveMeta.System
         [SerializeField]
         NetworkManager netManager;
 
+        public GameObject cube;
+
 
 
         void Awake ()
@@ -55,6 +57,7 @@ namespace ViveMeta.System
             else if ( deviceType == DeviceType.META )
             {
                 netManager.StartClient ();
+                NetworkServer.Spawn (cube);
             }
             else
             {

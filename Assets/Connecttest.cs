@@ -6,16 +6,15 @@ using UnityEngine.Networking;
 public class Connecttest : MonoBehaviour
 {
 
-    public GameObject cube;
     // Use this for initialization
     void Start ()
     {
-        NetworkServer.Spawn (Instantiate (cube));
+
     }
 
     // Update is called once per frame
     void Update ()
     {
-
+        this.transform.position = this.transform.position + new Vector3 (1, 0, 0);
     }
 }
