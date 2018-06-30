@@ -20,11 +20,14 @@ namespace ViveMeta.Vive
         [SerializeField]
         GameObject baseLCtrler;
 
+        [SerializeField]
+        GameObject virtualSpace;
+
         // Use this for initialization
         void Start ()
         {
-            rightHandController = Instantiate (CtrlPref).GetComponent<HandController> ();
-            leftHandController = Instantiate (CtrlPref).GetComponent<HandController> ();
+            rightHandController = Instantiate (CtrlPref, virtualSpace.transform).GetComponent<HandController> ();
+            leftHandController = Instantiate (CtrlPref, virtualSpace.transform).GetComponent<HandController> ();
             rightHandController.targetObject = baseRCtrler;
             leftHandController.targetObject = baseLCtrler;
 
