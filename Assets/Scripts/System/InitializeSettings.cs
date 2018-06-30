@@ -34,11 +34,10 @@ namespace ViveMeta.System
         {
             if ( deviceType == DeviceType.VIVE )
             {
-                ViveCameras.SetActive (true);
             }
             else if ( deviceType == DeviceType.META )
             {
-                MetaCameras.SetActive (true);
+
             }
             else
             {
@@ -53,11 +52,13 @@ namespace ViveMeta.System
             if ( deviceType == DeviceType.VIVE )
             {
                 netManager.StartHost ();
+                ViveCameras.SetActive (true);
+
             }
             else if ( deviceType == DeviceType.META )
             {
                 netManager.StartClient ();
-                NetworkServer.Spawn (Instantiate (cube));
+                MetaCameras.SetActive (true);
             }
             else
             {

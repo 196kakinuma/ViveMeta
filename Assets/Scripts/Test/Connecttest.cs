@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class Connecttest : MonoBehaviour
 {
 
+
     // Use this for initialization
     void Start ()
     {
