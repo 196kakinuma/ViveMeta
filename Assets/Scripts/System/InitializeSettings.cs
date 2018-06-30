@@ -2,19 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using IkLibrary.Unity;
+
+public enum DeviceType
+{
+    VIVE,
+    META,
+    HOLO
+}
 
 namespace ViveMeta.System
 {
-    enum DeviceType
-    {
-        VIVE,
-        META,
-        HOLO
-    }
 
 
-
-    public class InitializeSettings : MonoBehaviour
+    public class InitializeSettings : SingletonMonoBehaviour<InitializeSettings>
     {
         [SerializeField]
         DeviceType deviceType = DeviceType.VIVE;
@@ -26,7 +27,6 @@ namespace ViveMeta.System
         [SerializeField]
         NetworkManager netManager;
 
-        public GameObject cube;
 
 
 
@@ -70,6 +70,11 @@ namespace ViveMeta.System
         void Update ()
         {
 
+        }
+
+        public DeviceType GetDeviceType ()
+        {
+            return deviceType;
         }
     }
 }
