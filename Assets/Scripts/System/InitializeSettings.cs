@@ -57,7 +57,7 @@ namespace ViveMeta.System
             else if ( deviceType == DeviceType.META )
             {
                 netManager.StartClient ();
-                NetworkServer.Spawn (cube);
+                NetworkServer.Spawn (Instantiate (cube));
             }
             else
             {
