@@ -523,6 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071429341}
   - component: {fileID: 1071429342}
+  - component: {fileID: 1071429343}
   m_Layer: 0
   m_Name: MetaInit
   m_TagString: Untagged
@@ -554,6 +555,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2328cfbbe298cde4cbcac4d8baf81137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1071429343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1071429340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6556b16c744d41c4b9ae138b7dc6dc83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hmdPos: {fileID: 0}
 --- !u!1 &1262399844
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,6 +596,10 @@ Transform:
   m_Father: {fileID: 218684591}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1275788482 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 155680, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}
+  m_PrefabInternal: {fileID: 2073479669}
 --- !u!1 &1386314193
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +675,7 @@ GameObject:
   - component: {fileID: 1818241252}
   - component: {fileID: 1818241253}
   - component: {fileID: 1818241254}
+  - component: {fileID: 1818241255}
   m_Layer: 0
   m_Name: ViveInit
   m_TagString: Untagged
@@ -689,6 +707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c546507f05293c24da9846656bbc6c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 1818241255}
   CtrlPref: {fileID: 1257736581026676, guid: 2a4d8b4595e91fa45b561a0eb16193f6, type: 2}
   baseRCtrler: {fileID: 2077008840}
   baseLCtrler: {fileID: 861980446}
@@ -704,6 +723,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c100de09c531f54ab07b8147d6bfea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1818241255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1818241251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298c7d2a68b66404b931342eac8dfb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hmdPos: {fileID: 1275788482}
+  rightHandCtrl: {fileID: 0}
 --- !u!1 &1875752442 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 192944, guid: 4d293c8e162f3874b982baadd71153d2, type: 2}

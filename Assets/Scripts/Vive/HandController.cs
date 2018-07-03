@@ -5,7 +5,7 @@ using ViveMeta;
 
 public class HandController : MonoBehaviour
 {
-
+    public bool rightCtrler = false;
     void Awake ()
     {
         if ( ViveMeta.System.InitializeSettings.Instance.GetDeviceType () == DeviceType.META )

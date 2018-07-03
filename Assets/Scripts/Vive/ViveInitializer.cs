@@ -11,6 +11,9 @@ namespace ViveMeta.Vive
     public class ViveInitializer : MonoBehaviour
     {
         [SerializeField]
+        ViveInformation info;
+
+        [SerializeField]
         GameObject CtrlPref;
         HandController rightHandController;
         HandController leftHandController;
@@ -26,8 +29,10 @@ namespace ViveMeta.Vive
         // Use this for initialization
         void Start ()
         {
-            rightHandController = Instantiate (CtrlPref, virtualSpace.transform).GetComponent<HandController> ();
-            leftHandController = Instantiate (CtrlPref, virtualSpace.transform).GetComponent<HandController> ();
+            rightHandController = Instantiate (CtrlPref).GetComponent<HandController> ();
+            leftHandController = Instantiate (CtrlPref).GetComponent<HandController> ();
+            rightHandController.rightCtrler = true;
+            info.rightHandCtrl = rightHandController;
             rightHandController.targetObject = baseRCtrler;
             leftHandController.targetObject = baseLCtrler;
 
