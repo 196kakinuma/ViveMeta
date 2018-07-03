@@ -28,8 +28,6 @@ namespace ViveMeta.System
         NetworkManager netManager;
 
 
-
-
         void Awake ()
         {
             if ( deviceType == DeviceType.VIVE )

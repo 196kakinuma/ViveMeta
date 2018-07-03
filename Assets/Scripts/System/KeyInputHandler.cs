@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-namespace ViveMeta.Meta
+namespace ViveMeta.System
 {
-    public class MetaInitializer : MonoBehaviour
+    public class InputHandler : MonoBehaviour
     {
+
+        [SerializeField]
         // Use this for initialization
         void Start ()
         {
