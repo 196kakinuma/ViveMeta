@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using IkLibrary.Unity;
 
 namespace ViveMeta.Meta
 {
-    public class MetaInformation : MonoBehaviour
+    public class MetaInformation : SingletonMonoBehaviour<MetaInformation>
     {
         [SerializeField]
         GameObject hmdPos;
@@ -18,6 +19,15 @@ namespace ViveMeta.Meta
         void Update ()
         {
 
+        }
+
+        public Vector3 GetHMDPosition ()
+        {
+            return hmdPos.transform.position;
+        }
+        public Vector3 GetHMDForward ()
+        {
+            return hmdPos.transform.forward;
         }
     }
 }

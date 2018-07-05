@@ -42,15 +42,15 @@ namespace ViveMeta.System
             if ( clientDevice == InitializeSettings.Instance.GetDeviceType () ) return;
 
             var hmdpos = ConnectNetClient.Instance.GetHMDPosition ();
-
-            CmdResponseMetaPosition (ReverseDeviceType (clientDevice), num, hmdpos);
+            var hmdrot = ConnectNetClient.Instance.GetHMDRotation ();
+            CmdResponseMetaPosition (ReverseDeviceType (clientDevice), num, hmdpos, hmdrot);
 
         }
 
         [Command]
-        public void CmdResponseMetaPosition ( DeviceType clientDevice, int num, Vector3 hmdpos )
+        public void CmdResponseMetaPosition ( DeviceType clientDevice, int num, Vector3 hmdpos, Vector3 hmdrot )
         {
-            RpcResponseMetaposition (clientDevice, num, hmdpos);
+            RpcResponseMetaposition (clientDevice, num, hmdpos, hmdrot);
         }
 
         /// <summary>
@@ -60,11 +60,11 @@ namespace ViveMeta.System
         /// <param name="num"></param>
         /// <param name="hmdpos"></param>
         [ClientRpc]
-        void RpcResponseMetaposition ( DeviceType clientDeivce, int num, Vector3 hmdpos )
+        void RpcResponseMetaposition ( DeviceType clientDeivce, int num, Vector3 hmdpos, Vector3 hmdrot )
         {
             if ( clientDeivce == InitializeSettings.Instance.GetDeviceType () ) return;
 
-            ConnectNetClient.Instance.ResponseMetaposition (num, hmdpos);
+            ConnectNetClient.Instance.ResponseMetaposition (num, hmdpos, hmdrot);
         }
 
         [Command]

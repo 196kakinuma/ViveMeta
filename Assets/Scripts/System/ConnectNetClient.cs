@@ -41,9 +41,9 @@ namespace ViveMeta.System
             connectNet.CmdReqestMetaPosition (deviceType, num);
         }
 
-        public void ResponseMetaposition ( int num, Vector3 hmdpos )
+        public void ResponseMetaposition ( int num, Vector3 hmdpos, Vector3 hmdrot )
         {
-            Caliburation.Instance.SetCaliburationValue (num, hmdpos);
+            Caliburation.Instance.SetCaliburationValue (num, hmdpos, hmdrot);
         }
 
         /// <summary>
@@ -93,8 +93,26 @@ namespace ViveMeta.System
 
         public Vector3 GetHMDPosition ()
         {
-            //TODO:
-            return Vector3.zero;
+            if ( InitializeSettings.Instance.GetDeviceType () == DeviceType.VIVE )
+            {
+                return Vive.ViveInformation.Instance.GetHMDPosition ();
+            }
+            else
+            {
+                return Meta.MetaInformation.Instance.GetHMDPosition ();
+            }
+        }
+
+        public Vector3 GetHMDRotation ()
+        {
+            if ( InitializeSettings.Instance.GetDeviceType () == DeviceType.VIVE )
+            {
+                return Vive.ViveInformation.Instance.GEtHMDForward ();
+            }
+            else
+            {
+                return Meta.MetaInformation.Instance.GetHMDForward ();
+            }
         }
     }
 }
