@@ -9,6 +9,8 @@ public class HandController : MonoBehaviour
 
     [SerializeField]
     GameObject calibrationObject;
+    [SerializeField]
+    GameObject calibrationObject2;
     void Awake ()
     {
         if ( ViveMeta.System.InitializeSettings.Instance.GetDeviceType () == DeviceType.META )
@@ -54,6 +56,34 @@ public class HandController : MonoBehaviour
         else
         {
             return ( transform.position - calibrationObject.transform.position ).normalized;
+        }
+    }
+
+
+
+    public Vector3 GetRCalibrationObj2Position ()
+    {
+        if ( !rightCtrler )
+        {
+            Debug.LogError ("this is right hand");
+            return Vector3.zero;
+        }
+        else
+        {
+            return calibrationObject2.transform.position;
+        }
+    }
+
+    public Vector3 GetRCalibrationObj2Rotation ()
+    {
+        if ( !rightCtrler )
+        {
+            Debug.LogError ("this is right hand");
+            return Vector3.zero;
+        }
+        else
+        {
+            return ( transform.position - calibrationObject2.transform.position ).normalized;
         }
     }
 }
