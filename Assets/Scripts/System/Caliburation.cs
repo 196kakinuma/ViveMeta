@@ -60,6 +60,7 @@ namespace ViveMeta.System
             }
             getResp = false;
             Debug.Log ("first point" + firstCalibPos);
+            Debug.Log ("first rot" + firstCalibRot);
 
             //二回目
             ConnectNetClient.Instance.ReqChangeMeta2CalibMode (2);
@@ -76,7 +77,8 @@ namespace ViveMeta.System
                 yield return new WaitForEndOfFrame ();
             }
             getResp = false;
-            Debug.Log ("first point" + secondCalibPos);
+            Debug.Log ("second point" + secondCalibPos);
+            Debug.Log ("second rot" + secondCalibRot);
 
             //計算送信終了
             ConnectNetClient.Instance.PostMetaOffset (CalcMetaPosition ());
