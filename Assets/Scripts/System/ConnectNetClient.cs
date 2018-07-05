@@ -87,7 +87,6 @@ namespace ViveMeta.System
 
         public void PostMetaOffset ( Vector3 offsetPos, Quaternion offsetRot )
         {
-            //TODO:
             if ( deviceType != DeviceType.VIVE ) return;
             connectNet.CmdPostMetaOffset (deviceType, offsetPos, offsetRot);
         }
@@ -97,7 +96,7 @@ namespace ViveMeta.System
         public void SetMetaoffset ( Vector3 offset, Quaternion offsetRot )
         {
             if ( deviceType == DeviceType.VIVE ) return;
-            //TODO:
+            Meta.MetaInformation.Instance.SetMetaOffset (offset, offsetRot);
         }
 
         public Vector3 GetHMDPosition ()

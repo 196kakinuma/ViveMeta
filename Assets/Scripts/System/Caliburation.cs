@@ -82,7 +82,7 @@ namespace ViveMeta.System
 
             //計算送信終了
             ConnectNetClient.Instance.PostMetaOffset (CalcMetaPositionOffset (), CalcMetaRotationOffset ());
-            ConnectNetClient.Instance.ReqestMetaPosition (3);
+            ConnectNetClient.Instance.ReqChangeMeta2CalibMode (3);
 
         }
 
