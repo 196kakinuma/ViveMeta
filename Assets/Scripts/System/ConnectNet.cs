@@ -76,8 +76,9 @@ namespace ViveMeta.System
         [ClientRpc]
         void RpcChangemeta2CalibMode ( DeviceType clientDevice, int num )
         {
+            //Viveで呼び出しviveに届いたら無視
             if ( clientDevice == InitializeSettings.Instance.GetDeviceType () ) return;
-            //TODO:
+            ConnectNetClient.Instance.ChangeMeta2CalibMode (num);
 
         }
 

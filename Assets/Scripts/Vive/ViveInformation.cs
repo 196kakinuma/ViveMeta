@@ -34,14 +34,39 @@ namespace ViveMeta.Vive
             return hmdPos.transform.forward;
         }
 
-        public Vector3 GetCalibPos ()
+        public Vector3 GetCalibPos ( int num )
         {
-            return rightHandCtrl.GetRCalibrationObjPosition ();
+            if ( num == 1 )
+            {
+                return rightHandCtrl.GetRCalibrationObjPosition ();
+            }
+            else if ( num == 2 )
+            {
+                return rightHandCtrl.GetRCalibrationObj2Position ();
+            }
+            else
+            {
+                Debug.LogError (" num is out of range:" + num);
+                return Vector3.zero;
+            }
         }
 
-        public Vector3 GetCalibRot ()
+        public Vector3 GetCalibRot ( int num )
         {
-            return rightHandCtrl.GetRCalibrationObjRotation ();
+
+            if ( num == 1 )
+            {
+                return rightHandCtrl.GetRCalibrationObjRotation ();
+            }
+            else if ( num == 2 )
+            {
+                return rightHandCtrl.GetRCalibrationObj2Rotation ();
+            }
+            else
+            {
+                Debug.LogError (" num is out of range:" + num);
+                return Vector3.zero;
+            }
         }
     }
 

@@ -115,13 +115,13 @@ namespace ViveMeta.System
         {
             if ( num == 1 )
             {
-                firstPos = info.GetCalibPos ();
-                firstPot = info.GetCalibRot ();
+                firstPos = info.GetCalibPos (num);
+                firstPot = info.GetCalibRot (num);
             }
             else if ( num == 2 )
             {
-                secondPos = info.GetCalibPos ();
-                secondPot = info.GetCalibRot ();
+                secondPos = info.GetCalibPos (num);
+                secondPot = info.GetCalibRot (num);
             }
             else
             {

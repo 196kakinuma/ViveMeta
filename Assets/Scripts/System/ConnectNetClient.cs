@@ -62,22 +62,23 @@ namespace ViveMeta.System
         /// <param name="num">1:一回目 2:2回目3:きゃりぶモード終了</param>
         public void ChangeMeta2CalibMode ( int num )
         {
+            if ( deviceType == DeviceType.VIVE ) return;
             switch ( num )
             {
-			case 1:
-				Meta.MetaInformation.Instance.SetActiveCalibrationObj (true);
+                case 1:
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj (true);
                     break;
                 case 2:
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (true);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (true);
                     break;
                 case 3:
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
                     break;
                 default:
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
-					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+                    Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
                     Debug.LogError ("unknown num:" + num);
                     break;
 
