@@ -84,16 +84,16 @@ namespace ViveMeta.System
 
 
         [Command]
-        public void CmdPostMetaOffset ( DeviceType clientDevice, Vector3 offset )
+        public void CmdPostMetaOffset ( DeviceType clientDevice, Vector3 offsetPos, Quaternion offsetRot )
         {
-            RpcPostMetaOffset (clientDevice, offset);
+            RpcPostMetaOffset (clientDevice, offsetPos, offsetRot);
         }
 
         [ClientRpc]
-        void RpcPostMetaOffset ( DeviceType clientDevice, Vector3 offset )
+        void RpcPostMetaOffset ( DeviceType clientDevice, Vector3 offsetPos, Quaternion offsetRot )
         {
             if ( clientDevice == InitializeSettings.Instance.GetDeviceType () ) return;
-            ConnectNetClient.Instance.SetMetaoffset (offset);
+            ConnectNetClient.Instance.SetMetaoffset (offsetPos, offsetRot);
         }
 
 

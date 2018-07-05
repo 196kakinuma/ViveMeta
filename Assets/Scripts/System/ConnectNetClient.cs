@@ -85,15 +85,16 @@ namespace ViveMeta.System
             }
         }
 
-        public void PostMetaOffset ( Vector3 offset )
+        public void PostMetaOffset ( Vector3 offsetPos, Quaternion offsetRot )
         {
             //TODO:
             if ( deviceType != DeviceType.VIVE ) return;
+            connectNet.CmdPostMetaOffset (deviceType, offsetPos, offsetRot);
         }
         /// <summary>
         /// MRデバイスでのみ呼ぶ
         /// </summary>
-        public void SetMetaoffset ( Vector3 offset )
+        public void SetMetaoffset ( Vector3 offset, Quaternion offsetRot )
         {
             if ( deviceType == DeviceType.VIVE ) return;
             //TODO:

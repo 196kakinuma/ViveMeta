@@ -45,7 +45,7 @@ namespace ViveMeta.System
         {
             Debug.Log ("calibration start");
 
-            //いっかいめ
+            //いっかいめ エディタ上で、コントローラの正面がz軸方向に向いていることを確認
             ConnectNetClient.Instance.ReqChangeMeta2CalibMode (1);
             Debug.Log ("Waiting for Space key");
             while ( !getKeySpace )
@@ -81,7 +81,8 @@ namespace ViveMeta.System
             Debug.Log ("second rot" + secondCalibRot);
 
             //計算送信終了
-            ConnectNetClient.Instance.PostMetaOffset (CalcMetaPosition ());
+            ConnectNetClient.Instance.PostMetaOffset (CalcMetaPositionOffset (), CalcMetaRotationOffset ());
+            ConnectNetClient.Instance.ReqestMetaPosition (3);
 
         }
 
@@ -130,10 +131,16 @@ namespace ViveMeta.System
         }
 
         //メタのoffsetを計算して返す
-        Vector3 CalcMetaPosition ()
+        Vector3 CalcMetaPositionOffset ()
         {
-            //TODO:
-            return Vector3.zero;
+            var z = firstPos.z - firstCalibPos.z;
+            var y1 = firstPos.y - firstCalibPos.y;
+            var x = firstPos.x - firstCalibPos.x;
+            var y2 = firstPos.y - firstCalibPos.y;
+
+            var y = ( y1 + y2 ) / 2;
+
+            return new Vector3 (x, y, z);
         }
 
         Quaternion CalcMetaRotationOffset ()

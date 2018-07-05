@@ -9,10 +9,15 @@ namespace ViveMeta.Meta
     {
         [SerializeField]
         GameObject hmdPos;
-		[SerializeField]
-		GameObject calibrationObject;
-		[SerializeField]
-		GameObject calibrationObject2;
+        [SerializeField]
+        GameObject calibrationObject;
+        [SerializeField]
+        GameObject calibrationObject2;
+
+        //HMDのoffset
+        [SerializeField]
+        GameObject MetaPositionOffset;
+
         // Use this for initialization
         void Start ()
         {
@@ -33,13 +38,20 @@ namespace ViveMeta.Meta
         {
             return hmdPos.transform.forward;
         }
-		public void SetActiveCalibrationObj(bool b)
-		{
-			calibrationObject.SetActive (b);
-		}
-		public void SetActiveCalibrationObj2(bool b)
-		{
-			calibrationObject2.SetActive (b);
-		}
+        public void SetActiveCalibrationObj ( bool b )
+        {
+            calibrationObject.SetActive (b);
+        }
+        public void SetActiveCalibrationObj2 ( bool b )
+        {
+            calibrationObject2.SetActive (b);
+        }
+
+        public void SetMetaOffset ( Vector3 pos, Quaternion rot )
+        {
+            MetaPositionOffset.transform.position = pos;
+            //TODO:
+            //MetaPositionOffset.transform.Rotate()
+        }
     }
 }
