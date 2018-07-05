@@ -64,13 +64,20 @@ namespace ViveMeta.System
         {
             switch ( num )
             {
-                case 1:
+			case 1:
+				Meta.MetaInformation.Instance.SetActiveCalibrationObj (true);
                     break;
                 case 2:
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (true);
                     break;
                 case 3:
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
                     break;
                 default:
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj (false);
+					Meta.MetaInformation.Instance.SetActiveCalibrationObj2 (false);
                     Debug.LogError ("unknown num:" + num);
                     break;
 

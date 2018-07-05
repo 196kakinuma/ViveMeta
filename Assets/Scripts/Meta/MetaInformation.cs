@@ -9,6 +9,10 @@ namespace ViveMeta.Meta
     {
         [SerializeField]
         GameObject hmdPos;
+		[SerializeField]
+		GameObject calibrationObject;
+		[SerializeField]
+		GameObject calibrationObject2;
         // Use this for initialization
         void Start ()
         {
@@ -29,5 +33,13 @@ namespace ViveMeta.Meta
         {
             return hmdPos.transform.forward;
         }
+		public void SetActiveCalibrationObj(bool b)
+		{
+			calibrationObject.SetActive (b);
+		}
+		public void SetActiveCalibrationObj2(bool b)
+		{
+			calibrationObject2.SetActive (b);
+		}
     }
 }
