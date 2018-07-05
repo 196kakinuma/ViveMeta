@@ -677,6 +677,7 @@ MonoBehaviour:
   hmdPos: {fileID: 833648681}
   calibrationObject: {fileID: 1663964355}
   calibrationObject2: {fileID: 780498390}
+  MetaPositionOffset: {fileID: 1262399844}
 --- !u!1 &1262399844
 GameObject:
   m_ObjectHideFlags: 0
