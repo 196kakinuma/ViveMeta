@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e4f35eb19442a459362bddf0967a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exeOrder: 0
+  order: 0
 --- !u!1 &833648681 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1000011859835720, guid: 0f29804ebd89fa1409e93097cbff1a1d,
@@ -740,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c100de09c531f54ab07b8147d6bfea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  info: {fileID: 1818241255}
 --- !u!114 &1818241255
 MonoBehaviour:
   m_ObjectHideFlags: 0

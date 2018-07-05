@@ -8,6 +8,7 @@ namespace ViveMeta.System
     public class Caliburation : SingletonMonoBehaviour<Caliburation>
     {
         bool getResp = false;
+        bool getKeySpace = false;
         [SerializeField]
         Vive.ViveInformation info;
 
@@ -29,7 +30,10 @@ namespace ViveMeta.System
         // Update is called once per frame
         void Update ()
         {
-
+            if ( Input.GetKeyUp (KeyCode.Space) )
+            {
+                getKeySpace = true;
+            }
         }
 
         public void Caliburate ()
@@ -40,13 +44,15 @@ namespace ViveMeta.System
         IEnumerator StartCaliburation ()
         {
             Debug.Log ("calibration start");
+
             //いっかいめ
             ConnectNetClient.Instance.ReqChangeMeta2CalibMode (1);
             Debug.Log ("Waiting for Space key");
-            while ( !Input.GetKeyUp (KeyCode.Space) )
+            while ( !getKeySpace )
             {
                 yield return new WaitForEndOfFrame ();
             }
+            getKeySpace = false;
             ConnectNetClient.Instance.ReqestMetaPosition (1);
             while ( !getResp )
             {
@@ -58,10 +64,12 @@ namespace ViveMeta.System
             //二回目
             ConnectNetClient.Instance.ReqChangeMeta2CalibMode (2);
             Debug.Log ("Waiting for Space key");
-            while ( !Input.GetKeyUp (KeyCode.Space) )
+            while ( !getKeySpace )
             {
                 yield return new WaitForEndOfFrame ();
             }
+            getKeySpace = false;
+
             ConnectNetClient.Instance.ReqestMetaPosition (2);
             while ( !getResp )
             {
