@@ -111,6 +111,7 @@ namespace ViveMeta.System
             }
             else
             {
+                Debug.Log ("return HMD rotation");
                 return Meta.MetaInformation.Instance.GetHMDForward ();
             }
         }
